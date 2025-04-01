@@ -36,5 +36,17 @@ MacOs Sonoma 14.3.1 running with OpenCore 1.0.4
 | SMCProcessor | -- |
 | SMCSuperIO | -- |
 
+### UEFI Configuration
+
+| Disable                          | Enable                                                                 |
+|----------------------------------|-----------------------------------------------------------------------|
+| Fast Boot                        | VT-x                                                                  |
+| Secure Boot                      | VT-d (enabled if you set DisableIoMapper to YES)                      |
+| VMD                              | Above 4G Decoding                                                    |
+|                                  | Resizable BAR (Optional, set `config.plist-Booter-ResizeAppleGpuBars` |
+|                                  | to 0 if Enabled, or -1 if Disabled.)                                  |
+|                                  | EHCI/XHCI Hand-off                                                   |
+
+
 ### Not Working / Current Issues
 - AirDrop;
