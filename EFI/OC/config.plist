@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key># Specific config for Asus TUF B760M WIFI D4 / Intel i5 14400F</key>
+	<string></string>
+	<key># config made by Diogo Santos</key>
+	<string></string>
 	<key>ACPI</key>
 	<dict>
 		<key>Add</key>
@@ -127,8 +131,12 @@
 			<integer>0</integer>
 			<key>RebuildAppleMemoryMap</key>
 			<true/>
+			<key># ResizeAppleGpuBars - 0 if enabled on MB / -1 otherwise</key>
+			<string></string>
 			<key>ResizeAppleGpuBars</key>
 			<integer>0</integer>
+			<key># SetupVirtualMap - True &gt; Intel 12th gen</key>
+			<string></string>
 			<key>SetupVirtualMap</key>
 			<true/>
 			<key>SignalAppleOS</key>
@@ -150,6 +158,8 @@
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x3)</key>
 			<dict>
+				<key># Possible layouts [11, 12, 13, 21, 22, 23, 66, 69, 77, 98, 99]</key>
+				<string></string>
 				<key>layout-id</key>
 				<integer>99</integer>
 			</dict>
@@ -399,42 +409,6 @@
 				<key>Arch</key>
 				<string>x86_64</string>
 				<key>BundlePath</key>
-				<string>WhateverGreen.kext</string>
-				<key>Comment</key>
-				<string></string>
-				<key>Enabled</key>
-				<false/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/WhateverGreen</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>x86_64</string>
-				<key>BundlePath</key>
-				<string>XHCI-unsupported.kext</string>
-				<key>Comment</key>
-				<string></string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string></string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>x86_64</string>
-				<key>BundlePath</key>
 				<string>itlwm.kext</string>
 				<key>Comment</key>
 				<string></string>
@@ -582,6 +556,8 @@
 		<dict>
 			<key>AppleCpuPmCfgLock</key>
 			<false/>
+			<key># AppleXcpmCfgLock - True if MB doesn't have CFG Lock</key>
+			<string></string>
 			<key>AppleXcpmCfgLock</key>
 			<true/>
 			<key>AppleXcpmExtraMsrs</key>
@@ -598,6 +574,8 @@
 			<false/>
 			<key>DisableLinkeditJettison</key>
 			<true/>
+			<key># DisableRtcChecksum - Asus MB's may present an integrity issue - True </key>
+			<string></string>
 			<key>DisableRtcChecksum</key>
 			<true/>
 			<key>ExtendBTFeatureFlags</key>
@@ -624,6 +602,8 @@
 			<integer>-1</integer>
 			<key>ThirdPartyDrives</key>
 			<false/>
+			<key># XhciPortLimit - Set to True if SSDT-USB-RESET is present</key>
+			<string></string>
 			<key>XhciPortLimit</key>
 			<false/>
 		</dict>
@@ -651,12 +631,14 @@
 			<string>None</string>
 			<key>HibernateSkipsPicker</key>
 			<false/>
+			<key># HideAuxiliary - On boot shows macOs options, ex: reset NVRAM</key>
+			<string></string>
 			<key>HideAuxiliary</key>
 			<false/>
 			<key>InstanceIdentifier</key>
 			<string></string>
 			<key>LauncherOption</key>
-			<string>Disabled</string>
+			<string>Full</string>
 			<key>LauncherPath</key>
 			<string>Default</string>
 			<key>PickerAttributes</key>
@@ -669,6 +651,8 @@
 			<string>Auto</string>
 			<key>PollAppleHotKeys</key>
 			<false/>
+			<key># ShowPicker - Shows OpenCore boot menu</key>
+			<string></string>
 			<key>ShowPicker</key>
 			<true/>
 			<key>TakeoffDelay</key>
@@ -721,6 +705,8 @@
 			<data></data>
 			<key>ScanPolicy</key>
 			<integer>0</integer>
+			<key># SecureBootModel False since macOS Sonoma 14.4</key>
+			<string></string>
 			<key>SecureBootModel</key>
 			<string>Disabled</string>
 			<key>Vault</key>
@@ -794,7 +780,7 @@
 				<key>bluetoothInternalControllerInfo</key>
 				<data>AAAAAAAAAAAAAAAAAAA=</data>
 				<key>boot-args</key>
-				<string>-v debug=0x100 keepsyms=1 agdpmod=pikera -radcodec ctrsmt=full</string>
+				<string>debug=0x100 keepsyms=1 agdpmod=pikera -radcodec ctrsmt=full</string>
 				<key>csr-active-config</key>
 				<data>AwoAAA==</data>
 				<key>prev-lang:kbd</key>
@@ -953,6 +939,8 @@
 		<dict>
 			<key>AudioCodec</key>
 			<integer>0</integer>
+			<key># AudioDevice - Set to Audio PCI path</key>
+			<string></string>
 			<key>AudioDevice</key>
 			<string>PciRoot(0x0)/Pci(0x1b,0x0)</string>
 			<key>AudioOutMask</key>
