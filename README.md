@@ -47,6 +47,10 @@ MacOs Sonoma 14.3.1 running with OpenCore 1.0.4
 |                                  | to 0 if Enabled, or -1 if Disabled.)                                  |
 |                                  | EHCI/XHCI Hand-off                                                   |
 
+### Audio Layout-id
+[https://github.com/acidanthera/AppleALC/wiki/Supported-codecs](ALC897 - supported codecs)
+
+Possible layouts [11, 12, 13, 21, 22, 23, 66, 69, 77, 98, 99]
 
 ### Not Working / Current Issues
 - AirDrop;
