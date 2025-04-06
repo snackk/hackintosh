@@ -1,7 +1,7 @@
 # Description
-MacOs Sonoma 14.3.1 running with OpenCore 1.0.4
 
-![Screenshot 2025-03-19 at 15 14 17](https://github.com/user-attachments/assets/9253d484-2f8d-4ebe-bc69-3120159d0b6c)
+MacOs Sonoma 14.3.1 running with OpenCore 1.0.4
+![Screenshot 2025-04-06 at 22 09 21](https://github.com/user-attachments/assets/ecd0e8eb-8d64-4fd9-9095-a64e7f724aa4)
 
 ### Configuration
 
@@ -47,10 +47,12 @@ MacOs Sonoma 14.3.1 running with OpenCore 1.0.4
 | -           | EHCI/XHCI Hand-off                                     |
 
 ### Audio Layout-id
+
 [https://github.com/acidanthera/AppleALC/wiki/Supported-codecs](ALC897 - supported codecs)
 Possible layouts [11, 12, 13, 21, 22, 23, 66, 69, 77, 98, 99]
 
 ### Motherboard / USB Mapping
+
 <img width="139" alt="Screenshot 2025-04-05 at 17 46 52" src="https://github.com/user-attachments/assets/451d6c00-8183-4299-b0e5-b491406f1631" />
 
 ### Internal (255)
@@ -77,4 +79,5 @@ Possible layouts [11, 12, 13, 21, 22, 23, 66, 69, 77, 98, 99]
 | Front Panel1 - USB2.0     **10**      **UK10**
 
 ### Not Working / Current Issues
+
 - AirDrop;
