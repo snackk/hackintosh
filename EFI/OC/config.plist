@@ -2,9 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key># Specific config for Asus TUF B760M WIFI D4 / Intel i5 14400F</key>
+	<key># Specific config for Asus TUF B760M WIFI D4 / Intel 14400F</key>
 	<string></string>
-	<key># config made by Diogo Santos</key>
+	<key># Config made by Diogo Santos</key>
 	<string></string>
 	<key>ACPI</key>
 	<dict>
@@ -46,7 +46,7 @@
 				<key>Comment</key>
 				<string>SSDT-USB-Reset.aml</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
 				<string>SSDT-USB-Reset.aml</string>
 			</dict>
@@ -131,11 +131,11 @@
 			<integer>0</integer>
 			<key>RebuildAppleMemoryMap</key>
 			<true/>
-			<key># ResizeAppleGpuBars - 0 if enabled on MB / -1 otherwise</key>
+			<key># ResizeAppleGpuBars - 0 enabled on MB / -1 otherwise</key>
 			<string></string>
 			<key>ResizeAppleGpuBars</key>
 			<integer>0</integer>
-			<key># SetupVirtualMap - True &gt; Intel 12th gen</key>
+			<key># SetupVirtualMap - True from 12th Intel gen on</key>
 			<string></string>
 			<key>SetupVirtualMap</key>
 			<true/>
@@ -149,19 +149,273 @@
 	<dict>
 		<key>Add</key>
 		<dict>
+			<key>PciRoot(0x0)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,0,0</string>
+				<key>device_type</key>
+				<string>Host bridge</string>
+				<key>model</key>
+				<string>AsusTek Host bridge</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,1,0</string>
+				<key>device_type</key>
+				<string>PCI bridge</string>
+				<key>model</key>
+				<string>AsusTek PCI bridge</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,1,0/0,0</string>
+				<key>device_type</key>
+				<string>PCI bridge</string>
+				<key>model</key>
+				<string>Navi 10 XL Upstream Port of PCI Express Switch</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,1,0/0,0/0,0</string>
+				<key>device_type</key>
+				<string>PCI bridge</string>
+				<key>model</key>
+				<string>Navi 10 XL Downstream Port of PCI Express Switch</string>
+			</dict>
 			<key>PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)</key>
 			<dict>
 				<key>device-id</key>
 				<data>/3M=</data>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,1,0/0,0/0,0/0,0</string>
+				<key>device_type</key>
+				<string>VGA compatible controller</string>
 				<key>model</key>
 				<string>AMD Radeon RX 6650 XT</string>
 			</dict>
-			<key>PciRoot(0x0)/Pci(0x1f,0x3)</key>
+			<key>PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x1)</key>
 			<dict>
-				<key># Possible layouts [11, 12, 13, 21, 22, 23, 66, 69, 77, 98, 99]</key>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,1,0/0,0/0,0/0,1</string>
+				<key>device_type</key>
+				<string>Audio device</string>
+				<key>model</key>
+				<string>Navi 21/23 HDMI/DP Audio Controller</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x14,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,20,0</string>
+				<key>device_type</key>
+				<string>USB controller</string>
+				<key>model</key>
+				<string>AsusTek USB controller</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x14,0x2)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,20,2</string>
+				<key>device_type</key>
+				<string>RAM memory</string>
+				<key>model</key>
+				<string>AsusTek RAM Memory</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x14,0x3)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,20,3</string>
+				<key>device_type</key>
+				<string>Network controller</string>
+				<key>model</key>
+				<string>WIFI 6 AX201</string>
+				<key>built-in</key>
+				<data>AQAAAA==</data>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x15,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,21,0</string>
+				<key>device_type</key>
+				<string>Serial bus controller</string>
+				<key>model</key>
+				<string>AsusTek Serial bus controller</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x15,0x1)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,21,1</string>
+				<key>device_type</key>
+				<string>Serial bus controller</string>
+				<key>model</key>
+				<string>AsusTek Serial bus controller</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x15,0x2)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,21,2</string>
+				<key>device_type</key>
+				<string>Serial bus controller</string>
+				<key>model</key>
+				<string>AsusTek Serial bus controller</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x16,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,22,0</string>
+				<key>device_type</key>
+				<string>Communication controller</string>
+				<key>model</key>
+				<string>AsusTek Communication controller</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x17,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,23,0</string>
+				<key>device_type</key>
+				<string>SATA controller</string>
+				<key>model</key>
+				<string>AsusTek SATA controller</string>
+				<key>built-in</key>
+				<data>AQAAAA==</data>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1A,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,26,0</string>
+				<key>device_type</key>
+				<string>PCI bridge</string>
+				<key>model</key>
+				<string>AsusTek PCI bridge</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1A,0x0)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,26,0/0,0</string>
+				<key>device_type</key>
+				<string>Non-Volatile memory controller</string>
+				<key>model</key>
+				<string>NVMe SSD Controller 970</string>
+				<key>built-in</key>
+				<data>AQAAAA==</data>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1C,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,28,0</string>
+				<key>device_type</key>
+				<string>PCI bridge</string>
+				<key>model</key>
+				<string>AsusTek PCI bridge</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1C,0x0)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,28,0/0,0</string>
+				<key>device_type</key>
+				<string>USB controller</string>
+				<key>model</key>
+				<string>ASM2142/ASM3142 USB 3.1 Host Controller</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1C,0x2)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,28,2</string>
+				<key>device_type</key>
+				<string>PCI bridge</string>
+				<key>model</key>
+				<string>AsusTek PCI bridge</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1C,0x2)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,28,2/0,0</string>
+				<key>device_type</key>
+				<string>Ethernet controller</string>
+				<key>model</key>
+				<string>RTL8125 2.5GbE Controller</string>
+				<key>built-in</key>
+				<data>AQAAAA==</data>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1D,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,29,0</string>
+				<key>device_type</key>
+				<string>PCI bridge</string>
+				<key>model</key>
+				<string>AsusTek PCI bridge</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1F,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,31,0</string>
+				<key>device_type</key>
+				<string>ISA bridge</string>
+				<key>model</key>
+				<string>AsusTek ISA bridge</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1F,0x3)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,31,3</string>
+				<key>device_type</key>
+				<string>Audio device</string>
+				<key># Possible layout-id [11, 12, 13, 21, 22, 23, 66, 69, 77, 98, 99]</key>
 				<string></string>
 				<key>layout-id</key>
 				<integer>99</integer>
+				<key>model</key>
+				<string>Realtek ALC897</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1F,0x4)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,31,4</string>
+				<key>device_type</key>
+				<string>SMBus</string>
+				<key>model</key>
+				<string>AsusTek SMBus</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1F,0x5)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,31,5</string>
+				<key>device_type</key>
+				<string>Serial bus controller</string>
+				<key>model</key>
+				<string>AsusTek Serial bus controller</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x6,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,6,0</string>
+				<key>device_type</key>
+				<string>PCI bridge</string>
+				<key>model</key>
+				<string>Raptor Lake PCIe 4.0 Graphics Port</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x6,0x0)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,6,0/0,0</string>
+				<key>device_type</key>
+				<string>Non-Volatile memory controller</string>
+				<key>model</key>
+				<string>NVMe SSD Controller 980</string>
+				<key>built-in</key>
+				<data>AQAAAA==</data>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0xA,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,10,0</string>
+				<key>device_type</key>
+				<string>Signal processing controller</string>
+				<key>model</key>
+				<string>Raptor Lake Crashlog and Telemetry</string>
 			</dict>
 		</dict>
 		<key>Delete</key>
@@ -409,6 +663,24 @@
 				<key>Arch</key>
 				<string>x86_64</string>
 				<key>BundlePath</key>
+				<string>XHCI-unsupported.kext</string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string></string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>BundlePath</key>
 				<string>itlwm.kext</string>
 				<key>Comment</key>
 				<string></string>
@@ -556,7 +828,7 @@
 		<dict>
 			<key>AppleCpuPmCfgLock</key>
 			<false/>
-			<key># AppleXcpmCfgLock - True if MB doesn't have CFG Lock</key>
+			<key># AppleXcpmCfgLock - True if MB doesnt have CFG lock</key>
 			<string></string>
 			<key>AppleXcpmCfgLock</key>
 			<true/>
@@ -574,7 +846,7 @@
 			<false/>
 			<key>DisableLinkeditJettison</key>
 			<true/>
-			<key># DisableRtcChecksum - Asus MB's may present an integrity issue - True </key>
+			<key># DisableRtcChecksum - Asus MB way to overcome integrity issue on boot</key>
 			<string></string>
 			<key>DisableRtcChecksum</key>
 			<true/>
@@ -602,7 +874,7 @@
 			<integer>-1</integer>
 			<key>ThirdPartyDrives</key>
 			<false/>
-			<key># XhciPortLimit - Set to True if SSDT-USB-RESET is present</key>
+			<key># XhciPortLimit - Set to True to map USB's - SDT-USB-RESET must be present also</key>
 			<string></string>
 			<key>XhciPortLimit</key>
 			<false/>
@@ -631,11 +903,13 @@
 			<string>None</string>
 			<key>HibernateSkipsPicker</key>
 			<false/>
-			<key># HideAuxiliary - On boot shows macOs options, ex: reset NVRAM</key>
+			<key># HideAuxiliary - Show macOs additional options - ex: ResetNVRAM</key>
 			<string></string>
 			<key>HideAuxiliary</key>
 			<false/>
 			<key>InstanceIdentifier</key>
+			<string></string>
+			<key># LauncherOption - Show Option on UEFI</key>
 			<string></string>
 			<key>LauncherOption</key>
 			<string>Full</string>
@@ -651,7 +925,7 @@
 			<string>Auto</string>
 			<key>PollAppleHotKeys</key>
 			<false/>
-			<key># ShowPicker - Shows OpenCore boot menu</key>
+			<key># ShowPicker - Shows opencore boot menu</key>
 			<string></string>
 			<key>ShowPicker</key>
 			<true/>
@@ -705,7 +979,7 @@
 			<data></data>
 			<key>ScanPolicy</key>
 			<integer>0</integer>
-			<key># SecureBootModel False since macOS Sonoma 14.4</key>
+			<key># SecureBootModel - Disabled from macOs Sonoma 14.4 on</key>
 			<string></string>
 			<key>SecureBootModel</key>
 			<string>Disabled</string>
@@ -939,7 +1213,7 @@
 		<dict>
 			<key>AudioCodec</key>
 			<integer>0</integer>
-			<key># AudioDevice - Set to Audio PCI path</key>
+			<key># AudioDevice - MacOs chime on login</key>
 			<string></string>
 			<key>AudioDevice</key>
 			<string>PciRoot(0x0)/Pci(0x1b,0x0)</string>
