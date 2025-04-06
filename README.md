@@ -48,8 +48,33 @@ MacOs Sonoma 14.3.1 running with OpenCore 1.0.4
 
 ### Audio Layout-id
 [https://github.com/acidanthera/AppleALC/wiki/Supported-codecs](ALC897 - supported codecs)
-
 Possible layouts [11, 12, 13, 21, 22, 23, 66, 69, 77, 98, 99]
+
+### Motherboard / USB Mapping
+<img width="139" alt="Screenshot 2025-04-05 at 17 46 52" src="https://github.com/user-attachments/assets/451d6c00-8183-4299-b0e5-b491406f1631" />
+
+### Internal (255)
+| Port | UK Code | Controller            | Hex Code       | Address   | Type   |
+|------|---------|-----------------------|----------------|-----------|--------|
+| 14   | UK14    | AppleUSB20XHCIPort   | 14 (0e000000)  | 14e00000  | Type 3 |
+| 2    | UK02    | AppleUSB20XHCIPort   | 2 (02000000)   | 14200000  | Type 3 |
+| 7    | UK07    | AppleUSB20XHCIPort   | 7 (07000000)   | 14700000  | Type 3 |
+| 11   | UK11    | AppleUSB20XHCIPort   | 11 (0b000000)  | 14b00000  | Type 3 |
+
+### USB 2.0 Type A (0)
+| Port | UK Code | Controller            | Hex Code       | Address   | Type           |
+|------|---------|-----------------------|----------------|-----------|----------------|
+| 28   | UK03    | AppleUSB20XHCIPort   | 3 (03000000)   | 00300000  | Type 3 - USB 2 |
+| 6    | UK06    | AppleUSB20XHCIPort   | 6 (06000000)   | 14600000  | Type 3 - USB 3 |
+| 5    | UK05    | AppleUSB20XHCIPort   | 5 (05000000)   | 14500000  | Type 3 - USB 4 |
+| 9    | UK09    | AppleUSB20XHCIPort   | 9 (09000000)   | 14900000  | Type 3 - USB 5 |
+| 4    | UK04    | AppleUSB20XHCIPort   | 4 (04000000)   | 14400000  | Type 3 - USB 6 |
+| 3    | UK03    | AppleUSB20XHCIPort   | 3 (04000000)   | 14400000  | Type 3 - USB 7 |
+
+### Front Panel
+| Port       | UK Code     | Controller            | Hex Code       | Address     | Type               |
+|------------|-------------|-----------------------|----------------|-------------|--------------------|
+| Front Panel1 - USB2.0     **10**      **UK10**
 
 ### Not Working / Current Issues
 - AirDrop;
