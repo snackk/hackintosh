@@ -359,14 +359,16 @@
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1F,0x3)</key>
 			<dict>
+				<key># Possible layout-id [11, 12, 13, 21, 22, 23, 66, 69, 77, 98, 99]</key>
+				<string></string>
 				<key>AAPL,slot-name</key>
 				<string>Internal@0,31,3</string>
 				<key>device_type</key>
 				<string>Audio device</string>
-				<key># Possible layout-id [11, 12, 13, 21, 22, 23, 66, 69, 77, 98, 99]</key>
-				<string></string>
+				<key>external-audio</key>
+				<data>AQ==</data>
 				<key>layout-id</key>
-				<integer>99</integer>
+				<integer>11</integer>
 				<key>model</key>
 				<string>Realtek ALC897</string>
 			</dict>
@@ -906,7 +908,7 @@
 			<key># HideAuxiliary - Show macOs additional options - ex: ResetNVRAM</key>
 			<string></string>
 			<key>HideAuxiliary</key>
-			<false/>
+			<true/>
 			<key>InstanceIdentifier</key>
 			<string></string>
 			<key># LauncherOption - Show Option on UEFI</key>
@@ -1058,7 +1060,7 @@
 				<key>csr-active-config</key>
 				<data>AwoAAA==</data>
 				<key>prev-lang:kbd</key>
-				<string>en:252</string>
+				<data>cHQtUFQ6MA==</data>
 				<key>run-efi-updater</key>
 				<string>No</string>
 			</dict>
@@ -1251,6 +1253,30 @@
 				<false/>
 				<key>Path</key>
 				<string>HfsPlus.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string>OpenLinuxBoot.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>OpenLinuxBoot.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string>Ext4Dxe.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>Ext4Dxe.efi</string>
 			</dict>
 			<dict>
 				<key>Arguments</key>
