@@ -131,18 +131,18 @@
 			<integer>0</integer>
 			<key>RebuildAppleMemoryMap</key>
 			<true/>
-			<key># ResizeAppleGpuBars - 0 enabled on MB / -1 otherwise</key>
-			<string></string>
 			<key>ResizeAppleGpuBars</key>
 			<integer>0</integer>
-			<key># SetupVirtualMap - True from 12th Intel gen on</key>
-			<string></string>
 			<key>SetupVirtualMap</key>
 			<true/>
 			<key>SignalAppleOS</key>
 			<false/>
 			<key>SyncRuntimePermissions</key>
 			<true/>
+			<key># ResizeAppleGpuBars - 0 enabled on MB / -1 otherwise</key>
+			<string></string>
+			<key># SetupVirtualMap - True from 12th Intel gen on</key>
+			<string></string>
 		</dict>
 	</dict>
 	<key>DeviceProperties</key>
@@ -187,10 +187,10 @@
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)</key>
 			<dict>
-				<key>device-id</key>
-				<data>/3M=</data>
 				<key>AAPL,slot-name</key>
 				<string>Internal@0,1,0/0,0/0,0/0,0</string>
+				<key>device-id</key>
+				<data>/3M=</data>
 				<key>device_type</key>
 				<string>VGA compatible controller</string>
 				<key>model</key>
@@ -227,12 +227,12 @@
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Internal@0,20,3</string>
+				<key>built-in</key>
+				<data>AQAAAA==</data>
 				<key>device_type</key>
 				<string>Network controller</string>
 				<key>model</key>
 				<string>WIFI 6 AX201</string>
-				<key>built-in</key>
-				<data>AQAAAA==</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x15,0x0)</key>
 			<dict>
@@ -274,12 +274,12 @@
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Internal@0,23,0</string>
+				<key>built-in</key>
+				<data>AQAAAA==</data>
 				<key>device_type</key>
 				<string>SATA controller</string>
 				<key>model</key>
 				<string>AsusTek SATA controller</string>
-				<key>built-in</key>
-				<data>AQAAAA==</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1A,0x0)</key>
 			<dict>
@@ -294,12 +294,12 @@
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Internal@0,26,0/0,0</string>
+				<key>built-in</key>
+				<data>AQAAAA==</data>
 				<key>device_type</key>
 				<string>Non-Volatile memory controller</string>
 				<key>model</key>
 				<string>NVMe SSD Controller 970</string>
-				<key>built-in</key>
-				<data>AQAAAA==</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1C,0x0)</key>
 			<dict>
@@ -332,12 +332,12 @@
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Internal@0,28,2/0,0</string>
+				<key>built-in</key>
+				<data>AQAAAA==</data>
 				<key>device_type</key>
 				<string>Ethernet controller</string>
 				<key>model</key>
 				<string>RTL8125 2.5GbE Controller</string>
-				<key>built-in</key>
-				<data>AQAAAA==</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1D,0x0)</key>
 			<dict>
@@ -403,12 +403,12 @@
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Internal@0,6,0/0,0</string>
+				<key>built-in</key>
+				<data>AQAAAA==</data>
 				<key>device_type</key>
 				<string>Non-Volatile memory controller</string>
 				<key>model</key>
 				<string>NVMe SSD Controller 980</string>
-				<key>built-in</key>
-				<data>AQAAAA==</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0xA,0x0)</key>
 			<dict>
@@ -830,8 +830,6 @@
 		<dict>
 			<key>AppleCpuPmCfgLock</key>
 			<false/>
-			<key># AppleXcpmCfgLock - True if MB doesnt have CFG lock</key>
-			<string></string>
 			<key>AppleXcpmCfgLock</key>
 			<true/>
 			<key>AppleXcpmExtraMsrs</key>
@@ -848,8 +846,6 @@
 			<false/>
 			<key>DisableLinkeditJettison</key>
 			<true/>
-			<key># DisableRtcChecksum - Asus MB way to overcome integrity issue on boot</key>
-			<string></string>
 			<key>DisableRtcChecksum</key>
 			<true/>
 			<key>ExtendBTFeatureFlags</key>
@@ -876,10 +872,14 @@
 			<integer>-1</integer>
 			<key>ThirdPartyDrives</key>
 			<false/>
-			<key># XhciPortLimit - Set to True to map USB's - SDT-USB-RESET must be present also</key>
-			<string></string>
 			<key>XhciPortLimit</key>
 			<false/>
+			<key># AppleXcpmCfgLock - True if MB doesnt have CFG lock</key>
+			<string></string>
+			<key># DisableRtcChecksum - Asus MB way to overcome integrity issue on boot</key>
+			<string></string>
+			<key># XhciPortLimit - Set to True to map USB's - SDT-USB-RESET must be present also</key>
+			<string></string>
 		</dict>
 		<key>Scheme</key>
 		<dict>
@@ -905,13 +905,9 @@
 			<string>None</string>
 			<key>HibernateSkipsPicker</key>
 			<false/>
-			<key># HideAuxiliary - Show macOs additional options - ex: ResetNVRAM</key>
-			<string></string>
 			<key>HideAuxiliary</key>
 			<true/>
 			<key>InstanceIdentifier</key>
-			<string></string>
-			<key># LauncherOption - Show Option on UEFI</key>
 			<string></string>
 			<key>LauncherOption</key>
 			<string>Full</string>
@@ -927,14 +923,18 @@
 			<string>Auto</string>
 			<key>PollAppleHotKeys</key>
 			<false/>
-			<key># ShowPicker - Shows opencore boot menu</key>
-			<string></string>
 			<key>ShowPicker</key>
 			<true/>
 			<key>TakeoffDelay</key>
 			<integer>0</integer>
 			<key>Timeout</key>
 			<integer>10</integer>
+			<key># HideAuxiliary - Show macOs additional options - ex: ResetNVRAM</key>
+			<string></string>
+			<key># LauncherOption - Show Option on UEFI</key>
+			<string></string>
+			<key># ShowPicker - Shows opencore boot menu</key>
+			<string></string>
 		</dict>
 		<key>Debug</key>
 		<dict>
@@ -981,12 +981,12 @@
 			<data></data>
 			<key>ScanPolicy</key>
 			<integer>0</integer>
-			<key># SecureBootModel - Disabled from macOs Sonoma 14.4 on</key>
-			<string></string>
 			<key>SecureBootModel</key>
 			<string>Disabled</string>
 			<key>Vault</key>
 			<string>Optional</string>
+			<key># SecureBootModel - Disabled from macOs Sonoma 14.4 on</key>
+			<string></string>
 		</dict>
 		<key>Serial</key>
 		<dict>
@@ -1215,8 +1215,6 @@
 		<dict>
 			<key>AudioCodec</key>
 			<integer>0</integer>
-			<key># AudioDevice - MacOs chime on login</key>
-			<string></string>
 			<key>AudioDevice</key>
 			<string>PciRoot(0x0)/Pci(0x1b,0x0)</string>
 			<key>AudioOutMask</key>
@@ -1237,6 +1235,8 @@
 			<false/>
 			<key>SetupDelay</key>
 			<integer>0</integer>
+			<key># AudioDevice - MacOs chime on login</key>
+			<string></string>
 		</dict>
 		<key>ConnectDrivers</key>
 		<true/>
