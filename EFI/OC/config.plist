@@ -48,7 +48,7 @@
 				<key>Comment</key>
 				<string>SSDT-USB-Reset.aml</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
 				<string>SSDT-USB-Reset.aml</string>
 			</dict>
@@ -667,7 +667,7 @@
 				<key>Comment</key>
 				<string>XHCI-unsupported.kext</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string></string>
 				<key>MaxKernel</key>
@@ -703,7 +703,7 @@
 				<key>Comment</key>
 				<string>USBMap.kext</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string></string>
 				<key>MaxKernel</key>
