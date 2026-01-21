@@ -1,7 +1,7 @@
 # Description
 
 macOs Tahoe 26.2 running with OpenCore 1.0.6
-![Screenshot 2025-04-06 at 22 09 21](https://github.com/user-attachments/assets/ecd0e8eb-8d64-4fd9-9095-a64e7f724aa4)
+<img width="3440" height="1440" alt="Screenshot 2026-01-21 at 13 37 12" src="https://github.com/user-attachments/assets/6a8ae3c4-5513-4c08-ac7a-c6776106cfcc" />
 
 ### Configuration
 
