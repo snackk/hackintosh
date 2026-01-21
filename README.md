@@ -84,8 +84,10 @@
 
 ## 🧬 USB Port Mapping
 
-**USBMap.kext** - *12 active ports (15-port limit compliant)*
 <img width="139" alt="Screenshot 2025-04-05 at 17 46 52" src="https://github.com/user-attachments/assets/451d6c00-8183-4299-b0e5-b491406f1631" />
+
+
+**USBMap.kext** - *12 active ports (15-port limit compliant)*
 
 ### Internal Headers (255)
 
@@ -95,6 +97,7 @@
 | 14 | USB20XHCI | 0E | 14E00000 | 255 |
 | 2 | USB20XHCI | 02 | 14200000 | 255 |
 | 11 | USB20XHCI | 0B | 14B00000 | 255 |
+
 `T:7,14,2,11:255`
 
 ### USB 2.0 (0)
@@ -103,6 +106,7 @@
 |------|-------|
 | 5 | Rear Port 4 |
 | 6 | Rear Port 3 |
+
 `T:5,6:0`
 
 ### USB 3.x + Front Panel
@@ -115,6 +119,7 @@
 | 4 | USB20XHCI | 04 | 14400000 | Rear Port 6 |
 | 3 | USB20XHCI | 03 | 14300000 | Rear Port 7 |
 | 10 | USB20XHCI | 0A | 14A00000 | Front Header |
+
 `T:17,16,9,4,3,10:3`
 
 ---
@@ -125,3 +130,5 @@
 - **✅ Recommendation**: Use BCM94360CD for full Continuity/AirDrop/Handoff
 
 ---
+
+Written by @snackk
