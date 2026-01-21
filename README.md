@@ -1,4 +1,4 @@
-# 🖥️ Asus TUF B760M Hackintosh - macOS Tahoe 26.2
+# 🖥️ Asus TUF B760M - macOS Tahoe 26.2
 
 **macOS Tahoe 26.2** | **OpenCore 1.0.6** | **Intel i5-14400F** + **RX 6650 XT**
 
