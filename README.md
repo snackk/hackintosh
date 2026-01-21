@@ -1,6 +1,6 @@
 # Description
 
-MacOs Sonoma 15.4.1 running with OpenCore 1.0.6
+macOs Tahoe 26.2 running with OpenCore 1.0.6
 ![Screenshot 2025-04-06 at 22 09 21](https://github.com/user-attachments/assets/ecd0e8eb-8d64-4fd9-9095-a64e7f724aa4)
 
 ### Configuration
