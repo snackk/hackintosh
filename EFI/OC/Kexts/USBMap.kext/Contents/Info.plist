@@ -22,7 +22,7 @@
 	<string>1.0</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>iMacPro1,1-XHCI</key>
+		<key>MacPro7,1-XHCI</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBHostMergeProperties</string>
@@ -37,14 +37,14 @@
 				</dict>
 			</dict>
 			<key>IOProviderClass</key>
-			<string>AppleUSBXHCISPT</string>
+			<string>AppleUSBXHCIPCI</string>
 			<key>IOProviderMergeProperties</key>
 			<dict>
 				<key>kUSBMuxEnabled</key>
 				<true/>
 				<key>port-count</key>
 				<data>
-				GQAAAA==
+				DgAAAA==
 				</data>
 				<key>ports</key>
 				<dict>
@@ -53,6 +53,12 @@
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>#port</key>
+						<data>
+						AQAAAA==
+						</data>
+						<key>usb-port-type</key>
+						<integer>3</integer>
+						<key>#usb-port-number</key>
 						<data>
 						AQAAAA==
 						</data>
@@ -65,12 +71,24 @@
 						<data>
 						AgAAAA==
 						</data>
+						<key>usb-port-type</key>
+						<integer>255</integer>
+						<key>usb-port-number</key>
+						<data>
+						AgAAAA==
+						</data>
 					</dict>
 					<key>HS03</key>
 					<dict>
 						<key>UsbConnector</key>
-						<integer>0</integer>
+						<integer>3</integer>
 						<key>port</key>
+						<data>
+						AwAAAA==
+						</data>
+						<key>usb-port-type</key>
+						<integer>3</integer>
+						<key>usb-port-number</key>
 						<data>
 						AwAAAA==
 						</data>
@@ -78,8 +96,14 @@
 					<key>HS04</key>
 					<dict>
 						<key>UsbConnector</key>
-						<integer>0</integer>
+						<integer>3</integer>
 						<key>port</key>
+						<data>
+						BAAAAA==
+						</data>
+						<key>usb-port-type</key>
+						<integer>3</integer>
+						<key>usb-port-number</key>
 						<data>
 						BAAAAA==
 						</data>
@@ -92,12 +116,24 @@
 						<data>
 						BQAAAA==
 						</data>
+						<key>usb-port-type</key>
+						<integer>0</integer>
+						<key>usb-port-number</key>
+						<data>
+						BQAAAA==
+						</data>
 					</dict>
 					<key>HS06</key>
 					<dict>
 						<key>UsbConnector</key>
 						<integer>0</integer>
 						<key>port</key>
+						<data>
+						BgAAAA==
+						</data>
+						<key>usb-port-type</key>
+						<integer>0</integer>
+						<key>usb-port-number</key>
 						<data>
 						BgAAAA==
 						</data>
@@ -110,6 +146,12 @@
 						<data>
 						BwAAAA==
 						</data>
+						<key>usb-port-type</key>
+						<integer>255</integer>
+						<key>usb-port-number</key>
+						<data>
+						BwAAAA==
+						</data>
 					</dict>
 					<key>HS08</key>
 					<dict>
@@ -119,12 +161,24 @@
 						<data>
 						CAAAAA==
 						</data>
+						<key>usb-port-type</key>
+						<integer>3</integer>
+						<key>#usb-port-number</key>
+						<data>
+						CAAAAA==
+						</data>
 					</dict>
 					<key>HS09</key>
 					<dict>
 						<key>UsbConnector</key>
-						<integer>0</integer>
+						<integer>3</integer>
 						<key>port</key>
+						<data>
+						CQAAAA==
+						</data>
+						<key>usb-port-type</key>
+						<integer>3</integer>
+						<key>usb-port-number</key>
 						<data>
 						CQAAAA==
 						</data>
@@ -132,8 +186,14 @@
 					<key>HS10</key>
 					<dict>
 						<key>UsbConnector</key>
-						<integer>0</integer>
+						<integer>3</integer>
 						<key>port</key>
+						<data>
+						CgAAAA==
+						</data>
+						<key>usb-port-type</key>
+						<integer>3</integer>
+						<key>usb-port-number</key>
 						<data>
 						CgAAAA==
 						</data>
@@ -146,12 +206,24 @@
 						<data>
 						CwAAAA==
 						</data>
+						<key>usb-port-type</key>
+						<integer>255</integer>
+						<key>usb-port-number</key>
+						<data>
+						CwAAAA==
+						</data>
 					</dict>
 					<key>HS12</key>
 					<dict>
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>#port</key>
+						<data>
+						DAAAAA==
+						</data>
+						<key>usb-port-type</key>
+						<integer>3</integer>
+						<key>#usb-port-number</key>
 						<data>
 						DAAAAA==
 						</data>
@@ -164,12 +236,24 @@
 						<data>
 						DQAAAA==
 						</data>
+						<key>usb-port-type</key>
+						<integer>3</integer>
+						<key>#usb-port-number</key>
+						<data>
+						DQAAAA==
+						</data>
 					</dict>
 					<key>HS14</key>
 					<dict>
 						<key>UsbConnector</key>
 						<integer>255</integer>
 						<key>port</key>
+						<data>
+						DgAAAA==
+						</data>
+						<key>usb-port-type</key>
+						<integer>255</integer>
+						<key>usb-port-number</key>
 						<data>
 						DgAAAA==
 						</data>
@@ -182,103 +266,19 @@
 						<data>
 						DwAAAA==
 						</data>
-					</dict>
-					<key>HS16</key>
-					<dict>
-						<key>UsbConnector</key>
+						<key>usb-port-type</key>
 						<integer>3</integer>
-						<key>#port</key>
+						<key>#usb-port-number</key>
 						<data>
-						EAAAAA==
-						</data>
-					</dict>
-					<key>SS01</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>8</integer>
-						<key>port</key>
-						<data>
-						EQAAAA==
-						</data>
-					</dict>
-					<key>SS02</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>3</integer>
-						<key>port</key>
-						<data>
-						EgAAAA==
-						</data>
-					</dict>
-					<key>SS03</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>3</integer>
-						<key>port</key>
-						<data>
-						EwAAAA==
-						</data>
-					</dict>
-					<key>SS04</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>3</integer>
-						<key>#port</key>
-						<data>
-						FAAAAA==
-						</data>
-					</dict>
-					<key>SS05</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>3</integer>
-						<key>#port</key>
-						<data>
-						FQAAAA==
-						</data>
-					</dict>
-					<key>SS06</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>3</integer>
-						<key>#port</key>
-						<data>
-						FgAAAA==
-						</data>
-					</dict>
-					<key>SS07</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>3</integer>
-						<key>#port</key>
-						<data>
-						FwAAAA==
-						</data>
-					</dict>
-					<key>SS08</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>3</integer>
-						<key>port</key>
-						<data>
-						GAAAAA==
-						</data>
-					</dict>
-					<key>SS09</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>3</integer>
-						<key>port</key>
-						<data>
-						GQAAAA==
+						DwAAAA==
 						</data>
 					</dict>
 				</dict>
 			</dict>
 			<key>model</key>
-			<string>iMacPro1,1</string>
+			<string>MacPro7,1</string>
 		</dict>
-		<key>iMacPro1,1-PXSX</key>
+		<key>MacPro7,1-PXSX</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBHostMergeProperties</string>
@@ -300,7 +300,7 @@
 				<true/>
 				<key>port-count</key>
 				<data>
-				AwAAAA==
+				AgAAAA==
 				</data>
 				<key>ports</key>
 				<dict>
@@ -309,6 +309,12 @@
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>port</key>
+						<data>
+						AQAAAA==
+						</data>
+						<key>usb-port-type</key>
+						<integer>3</integer>
+						<key>usb-port-number</key>
 						<data>
 						AQAAAA==
 						</data>
@@ -321,20 +327,47 @@
 						<data>
 						AgAAAA==
 						</data>
+						<key>usb-port-type</key>
+						<integer>3</integer>
+						<key>usb-port-number</key>
+						<data>
+						AgAAAA==
+						</data>
 					</dict>
 					<key>HS01</key>
 					<dict>
 						<key>UsbConnector</key>
-						<integer>0</integer>
-						<key>port</key>
+						<integer>3</integer>
+						<key>#port</key>
 						<data>
 						AwAAAA==
+						</data>
+						<key>usb-port-type</key>
+						<integer>3</integer>
+						<key>#usb-port-number</key>
+						<data>
+						AwAAAA==
+						</data>
+					</dict>
+					<key>HS02</key>
+					<dict>
+						<key>UsbConnector</key>
+						<integer>3</integer>
+						<key>#port</key>
+						<data>
+						BAAAAA==
+						</data>
+						<key>usb-port-type</key>
+						<integer>3</integer>
+						<key>#usb-port-number</key>
+						<data>
+						BAAAAA==
 						</data>
 					</dict>
 				</dict>
 			</dict>
 			<key>model</key>
-			<string>iMacPro1,1</string>
+			<string>MacPro7,1</string>
 		</dict>
 	</dict>
 	<key>OSBundleRequired</key>

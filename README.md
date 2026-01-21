@@ -1,83 +1,127 @@
-# Description
+# 🖥️ Asus TUF B760M Hackintosh - macOS Tahoe 26.2
 
-macOs Tahoe 26.2 running with OpenCore 1.0.6
-<img width="3440" height="1440" alt="Screenshot 2026-01-21 at 13 37 12" src="https://github.com/user-attachments/assets/6a8ae3c4-5513-4c08-ac7a-c6776106cfcc" />
+**macOS Tahoe 26.2** | **OpenCore 1.0.6** | **Intel i5-14400F** + **RX 6650 XT**
 
-### Configuration
+![macOS Tahoe Desktop](https://github.com/user-attachments/assets/6a8ae3c4-5513-4c08-ac7a-c6776106cfcc)
 
-| **Component**     | **Model**                        |
-|-------------------|----------------------------------|
-| CPU               | Intel Core i5 14400F             |
-| Dedicated GPU     | AMD Radeon RX 6650 XT 8GB        |
-| Motherboard       | Asus TUF B760M WIFI PLUS WIFI D4 |
-| Audio             | Realtek ALC897	                |
-| Network/Bluetooth | Intel AX201 / BCM94360CD         |
-| SSD               | Samsung 980 Evo Plus 256GB       |
-| RAM               | Corsair Vengeance 2x 8GB         |
-| Case              | CORSAIR Crystal Series 280X      |
+---
 
-### Kexts
+## 🛠️ Hardware Configuration
 
-| Kext                   | Description                                                                                                                                                                          |
-|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Lilu                   | Essential                                                                                                                                                                            |
-| AppleALC               | Audio driver                                                                                                                                                                         |
-| BlueToolFixup          | Bluetooth repair patch                                                                                                                                                               |
-| CpuTopologyRebuild     | Intel Alder Lake, Raptor Lake, and Arrow Lake core fix                                                                                                                               |
-| IntelBTPatcher         | Bluetooth driver                                                                                                                                                                     |
-| IntelBluetoothFirmware | Bluetooth driver                                                                                                                                                                     |
-| LucyRTL8125Ethernet    | Ethernet driver                                                                                                                                                                      |
-| NVMeFix                | NVMe hard drive power management                                                                                                                                                     |
-| RestrictEvents         | Lilu Kernel extension for blocking unwanted processes causing compatibility issues on different hardware and unlocking the support for certain features restricted to other hardware |
-| VirtualSMC             | Emulates critical Apple hardware to allow for battery / sensors / sleep functionality                                                                                                |
-| SMCProcessor           | Intel Processor sensors                                                                                                                                                              |
-| SMCSuperIO             | -                                                                                                                                                                                    |
-| NootRX                 | Graphical driver for RX 6650 XT                                                                                                                                                      |
-| XHCI-Unsupported       | Turn on unsupported features                                                                                                                                                         |
-| Itlwm                  | Intel Wireless Driver for AX201                                                                                                                                                      |
+| Component | Model |
+|-----------|-------|
+| **CPU** | Intel Core i5-14400F |
+| **GPU** | AMD Radeon RX 6650 XT 8 GB |
+| **Motherboard** | Asus TUF B760M-PLUS WIFI D4 |
+| **Audio** | Realtek ALC897 |
+| **WiFi/BT** | Intel AX201 (itlwm stack) |
+| **Native WiFi/BT** | BCM94360CD *(recommended)* |
+| **SSD** | Samsung 980 EVO Plus 256 GB |
+| **RAM** | Corsair Vengeance 2×8 GB DDR4 |
+| **Case** | CORSAIR Crystal Series 280X |
 
-### UEFI Configuration
+---
 
-| Disable     | Enable                                                 |
-|-------------|--------------------------------------------------------|
-| Fast-Boot   | VT-x                                                   |
-| Secure-Boot | VT-d (**DisableIoMapper** should be **YES**)           |
-| VMD         | Above 4G Decoding                                      |
-| -           | Resizable BAR (**ResizeAppleGpuBars** should be **0**) |
-| -           | EHCI/XHCI Hand-off                                     |
+## 📦 Kexts (EFI/OC/Kernel)
 
-### Audio Layout-id
+| Kext | Purpose |
+|------|---------|
+| **Lilu.kext** | Core patching framework |
+| **AppleALC.kext** | Realtek ALC897 audio *(layout-id: 11)* |
+| **VirtualSMC.kext** | SMC emulation (sensors, power mgmt) |
+| **SMCProcessor.kext** | CPU sensors |
+| **SMCSuperIO.kext** | Motherboard sensors |
+| **CpuTopologyRebuild.kext** | Raptor Lake core topology |
+| **NVMeFix.kext** | NVMe power management |
+| **NootRX.kext** | AMD RX 6650 XT accelerator |
+| **RestrictEvents.kext** | Block macOS security restrictions |
+| **LucyRTL8125Ethernet.kext** | Realtek 2.5GbE LAN |
+| **IntelBluetoothFirmware.kext** | AX201 BT firmware |
+| **IntelBTPatcher.kext** | Bluetooth stack patches |
+| **BlueToolFixup.kext** | Bluetooth controller fixes |
+| **itlwm.kext** | Intel AX201 WiFi |
+| **USBMap.kext** | Custom USB port mapping |
+| **AMFIPass.kext** | AMFI bypass |
+| **XHCI-unsupported.kext** | USB XHCI unlock *(DISABLED)* |
 
-[https://github.com/acidanthera/AppleALC/wiki/Supported-codecs](ALC897 - supported codecs)
-Possible layouts [11, 12, 13, 21, 22, 23, 66, 69, 77, 98, 99]
+> **Boot-args**: `agdpmod=pikera lilucpu=10 -radcodec`
 
-### Motherboard / USB Mapping
+---
 
+## ⚡ ACPI Patches (EFI/OC/ACPI)
+
+| SSDT File | Status | Purpose |
+|-----------|--------|---------|
+| SSDT-SBUS.aml | ✅ | USB power (SBUS-MCHC) |
+| SSDT-EC.aml | ✅ | Embedded Controller |
+| SSDT-PLUG-ALT.aml | ✅ | CPU power management |
+| SSDT-RTCAWAC.aml | ✅ | RTC + AWAC clock source |
+| SSDT-USBX.aml | ✅ | USB power injection |
+| SSDT-BRG0.aml | ✅ | PCIe bridge renaming |
+| SSDT-USB-Reset.aml | ❌ | USB reset *(disabled)* |
+
+---
+
+## 🔧 BIOS / UEFI Settings
+
+| **DISABLE** | **ENABLE** |
+|-------------|------------|
+| Fast Boot | VT-x |
+| Secure Boot | VT-d *(DisableIoMapper=YES)* |
+| Intel VMD | Above 4G Decoding |
+| CSM | Resizable BAR *(ResizeGpuBars=-1)* |
+| CFG-Lock | EHCI/XHCI Hand-off |
+
+---
+
+## 🔊 Audio Configuration
+
+**Codec**: Realtek ALC897  
+**layout-id**: `11` *(PciRoot(0x0)/Pci(0x1F,0x3))*  
+**Supported layouts**: `11, 12, 13, 21, 22, 23, 66, 69, 77, 98, 99`
+
+---
+
+## 🧬 USB Port Mapping
+
+**USBMap.kext** - *12 active ports (15-port limit compliant)*
 <img width="139" alt="Screenshot 2025-04-05 at 17 46 52" src="https://github.com/user-attachments/assets/451d6c00-8183-4299-b0e5-b491406f1631" />
 
-### Internal (255)
-| Port | UK Code | Controller            | Hex Code       | Address   | Type   |
-|------|---------|-----------------------|----------------|-----------|--------|
-| 14   | UK14    | AppleUSB20XHCIPort   | 14 (0e000000)  | 14e00000  | Type 3 |
-| 2    | UK02    | AppleUSB20XHCIPort   | 2 (02000000)   | 14200000  | Type 3 |
-| 7    | UK07    | AppleUSB20XHCIPort   | 7 (07000000)   | 14700000  | Type 3 |
-| 11   | UK11    | AppleUSB20XHCIPort   | 11 (0b000000)  | 14b00000  | Type 3 |
+### Internal Headers (255)
 
-### USB 2.0 Type A (0)
-| Port | UK Code | Controller            | Hex Code       | Address   | Type           |
-|------|---------|-----------------------|----------------|-----------|----------------|
-| 28   | UK03    | AppleUSB20XHCIPort   | 3 (03000000)   | 00300000  | Type 3 - USB 2 |
-| 6    | UK06    | AppleUSB20XHCIPort   | 6 (06000000)   | 14600000  | Type 3 - USB 3 |
-| 5    | UK05    | AppleUSB20XHCIPort   | 5 (05000000)   | 14500000  | Type 3 - USB 4 |
-| 9    | UK09    | AppleUSB20XHCIPort   | 9 (09000000)   | 14900000  | Type 3 - USB 5 |
-| 4    | UK04    | AppleUSB20XHCIPort   | 4 (04000000)   | 14400000  | Type 3 - USB 6 |
-| 3    | UK03    | AppleUSB20XHCIPort   | 3 (04000000)   | 14400000  | Type 3 - USB 7 |
+| Port | Controller | Hex | Address | Type |
+|------|------------|-----|---------|------|
+| 7 | USB20XHCI | 07 | 14700000 | 255 |
+| 14 | USB20XHCI | 0E | 14E00000 | 255 |
+| 2 | USB20XHCI | 02 | 14200000 | 255 |
+| 11 | USB20XHCI | 0B | 14B00000 | 255 |
+`T:7,14,2,11:255`
 
-### Front Panel
-| Port       | UK Code     | Controller            | Hex Code       | Address     | Type               |
-|------------|-------------|-----------------------|----------------|-------------|--------------------|
-| Front Panel1 - USB2.0     **10**      **UK10**
+### USB 2.0 (0)
 
-### Not Working / Current Issues
+| Port | Notes |
+|------|-------|
+| 5 | Rear Port 4 |
+| 6 | Rear Port 3 |
+`T:5,6:0`
 
-- AirDrop;
+### USB 3.x + Front Panel
+
+| Port | Controller | Hex | Address | Notes |
+|------|------------|-----|---------|-------|
+| 17 | USB30XHCI | 02 | 00200000 | Rear Port 1 |
+| 16 | USB30XHCI | 01 | 00100000 | Rear Port 2 |
+| 9 | USB20XHCI | 09 | 14900000 | Rear Port 5 |
+| 4 | USB20XHCI | 04 | 14400000 | Rear Port 6 |
+| 3 | USB20XHCI | 03 | 14300000 | Rear Port 7 |
+| 10 | USB20XHCI | 0A | 14A00000 | Front Header |
+`T:17,16,9,4,3,10:3`
+
+---
+
+## ⚠️ Known Issues
+
+- **❌ AirDrop**: Not working *(Intel AX201 limitation)*
+- **✅ Recommendation**: Use BCM94360CD for full Continuity/AirDrop/Handoff
+
+---
