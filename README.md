@@ -2,7 +2,8 @@
 
 **macOS Tahoe 26.7.2** | **OpenCore 1.0.8** | **Intel i5-14400F** + **RX 6900 XT**
 
-![macOS Tahoe Desktop]([https://github.com/user-attachments/assets/6a8ae3c4-5513-4c08-ac7a-c6776106cfcc)
+<img width="3440" height="1440" alt="Screenshot 2026-11-06 at 11 54 13" src="https://github.com/user-attachments/assets/b5ff5714-ebb9-4e56-bdb4-30dcc99dec79" />
+
 
 
 ---
