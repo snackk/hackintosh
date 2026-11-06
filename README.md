@@ -19,7 +19,7 @@
 | **WiFi/BT** | Intel AX201 (itlwm stack) |
 | **Native WiFi/BT** | BCM94360CD *(recommended)* |
 | **SSD** | Samsung 980 EVO Plus 256 GB |
-| **RAM** | Corsair Vengeance 2×8 GB DDR4 |
+| **RAM** | Corsair Vengeance 4×8 GB DDR4 |
 | **Case** | CORSAIR Crystal Series 280X |
 
 ---
