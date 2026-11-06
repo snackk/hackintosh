@@ -1,8 +1,9 @@
-# 🖥️ Asus TUF B760M - macOS Tahoe 26.2
+# 🖥️ Asus TUF B760M - macOS Tahoe 26.7.2
 
-**macOS Tahoe 26.2** | **OpenCore 1.0.6** | **Intel i5-14400F** + **RX 6650 XT**
+**macOS Tahoe 26.7.2** | **OpenCore 1.0.8** | **Intel i5-14400F** + **RX 6900 XT**
 
-![macOS Tahoe Desktop](https://github.com/user-attachments/assets/6a8ae3c4-5513-4c08-ac7a-c6776106cfcc)
+![macOS Tahoe Desktop]([https://github.com/user-attachments/assets/6a8ae3c4-5513-4c08-ac7a-c6776106cfcc](https://github.com/user-attachments/assets/19c3d2d5-bca5-4053-b4c5-0bf8b3422bf9))
+
 
 ---
 
@@ -11,7 +12,7 @@
 | Component | Model |
 |-----------|-------|
 | **CPU** | Intel Core i5-14400F |
-| **GPU** | AMD Radeon RX 6650 XT 8 GB |
+| **GPU** | AMD Radeon RX 6900 XT 16 GB |
 | **Motherboard** | Asus TUF B760M-PLUS WIFI D4 |
 | **Audio** | Realtek ALC897 |
 | **WiFi/BT** | Intel AX201 (itlwm stack) |
@@ -33,7 +34,7 @@
 | **SMCSuperIO.kext** | Motherboard sensors |
 | **CpuTopologyRebuild.kext** | Raptor Lake core topology |
 | **NVMeFix.kext** | NVMe power management |
-| **NootRX.kext** | AMD RX 6650 XT accelerator |
+| **NootRX.kext** | AMD RX 6900 XT accelerator |
 | **RestrictEvents.kext** | Block macOS security restrictions |
 | **LucyRTL8125Ethernet.kext** | Realtek 2.5GbE LAN |
 | **IntelBluetoothFirmware.kext** | AX201 BT firmware |
