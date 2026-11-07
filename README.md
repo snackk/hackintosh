@@ -16,7 +16,7 @@
 | **GPU** | AMD Radeon RX 6900 XT 16 GB |
 | **Motherboard** | Asus TUF B760M-PLUS WIFI D4 |
 | **Audio** | Realtek ALC897 |
-| **WiFi/BT** | Intel AX201 (itlwm stack) |
+| **WiFi/BT** | Intel CNVi Wi-Fi 8086:7A70 + BT (AirportItlwm / IntelBluetooth stack) |
 | **Native WiFi/BT** | BCM94360CD *(recommended)* |
 | **SSD** | Samsung 980 EVO Plus 256 GB |
 | **RAM** | Corsair Vengeance 4×8 GB DDR4 |
@@ -30,6 +30,7 @@
 |------|---------|
 | **Lilu.kext** | Core patching framework |
 | **AppleALC.kext** | Realtek ALC897 audio *(layout-id: 11)* |
+| **SimpleHDA.kext** | Restores AppleHDA on Tahoe *(must load after AppleALC)* |
 | **VirtualSMC.kext** | SMC emulation (sensors, power mgmt) |
 | **SMCProcessor.kext** | CPU sensors |
 | **SMCSuperIO.kext** | Motherboard sensors |
@@ -38,15 +39,15 @@
 | **NootRX.kext** | AMD RX 6900 XT accelerator |
 | **RestrictEvents.kext** | Block macOS security restrictions |
 | **LucyRTL8125Ethernet.kext** | Realtek 2.5GbE LAN |
-| **IntelBluetoothFirmware.kext** | AX201 BT firmware |
+| **IntelBluetoothFirmware.kext** | Intel BT firmware |
 | **IntelBTPatcher.kext** | Bluetooth stack patches |
 | **BlueToolFixup.kext** | Bluetooth controller fixes |
-| **itlwm.kext** | Intel AX201 WiFi |
+| **AirportItlwm.kext** | Intel Wi-Fi, native Wi-Fi menu *(laobamac fork, Tahoe build)* |
 | **USBMap.kext** | Custom USB port mapping |
 | **AMFIPass.kext** | AMFI bypass |
 | **XHCI-unsupported.kext** | USB XHCI unlock *(DISABLED)* |
 
-> **Boot-args**: `agdpmod=pikera lilucpu=10 -radcodec`
+> **Boot-args**: `agdpmod=pikera lilucpu=10 -radcodec shda-lang=pt_PT`
 
 ---
 
@@ -79,8 +80,27 @@
 ## 🔊 Audio Configuration
 
 **Codec**: Realtek ALC897  
-**layout-id**: `11` *(PciRoot(0x0)/Pci(0x1F,0x3))*  
+**layout-id**: `11` *(PciRoot(0x0)/Pci(0x1F,0x3), stored as Data `0B000000`)*  
 **Supported layouts**: `11, 12, 13, 21, 22, 23, 66, 69, 77, 98, 99`
+
+macOS 26 no longer ships `AppleHDA.kext`, so AppleALC alone cannot provide analog audio on Tahoe.
+[SimpleHDA](https://github.com/laobamac/SimpleHDA) (Lilu plugin, v1.0.1) restores the AppleHDA stack through OpenCore injection, without touching the system volume.
+
+- Kernel -> Add order: `Lilu` -> `AppleALC` -> `SimpleHDA`
+- Requires `Kernel -> Quirks -> DisableLinkeditJettison = true`
+- Keep the `layout-id` in a single place (DeviceProperties here, no `alcid` boot-arg)
+- `shda-lang=pt_PT` sets the language of the device names (default is Chinese)
+
+---
+
+## 📶 Wi-Fi Configuration
+
+**Card**: Intel CNVi Wi-Fi, PCI `8086:7A70` at `PciRoot(0x0)/Pci(0x14,0x3)`  
+**Kext**: [AirportItlwm](https://github.com/laobamac/itlwm) 2.4.0 (laobamac fork), **Tahoe** build
+
+- Do **not** block `IOSkywalkFamily` (`Kernel -> Block`). That entry is only for legacy Broadcom Wi-Fi and removes the system framework that AirportItlwm depends on
+- `AMFIPass.kext` must be enabled
+- Wi-Fi 6 (HE) is off by default; add `itlwm_he=1` to boot-args to try it
 
 ---
 
@@ -128,7 +148,8 @@
 
 ## ⚠️ Known Issues
 
-- **❌ AirDrop**: Not working *(Intel AX201 limitation)*
+- **❌ AirDrop**: Not working *(AirportItlwm does not support AWDL)*
+- **⚠️ Wi-Fi / Audio**: setup for Tahoe 26.7.2 (AirportItlwm + SimpleHDA) is configured but still being validated on hardware
 - **✅ Recommendation**: Use BCM94360CD for full Continuity/AirDrop/Handoff
 
 ---

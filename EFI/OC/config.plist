@@ -350,7 +350,7 @@
 				<key>external-audio</key>
 				<data>AQ==</data>
 				<key>layout-id</key>
-				<integer>11</integer>
+				<data>CwAAAA==</data>
 				<key>model</key>
 				<string>Realtek ALC897</string>
 			</dict>
@@ -442,6 +442,24 @@
 				<string></string>
 				<key>MinKernel</key>
 				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
+				<string>SimpleHDA.kext</string>
+				<key>Comment</key>
+				<string>SimpleHDA.kext - restores AppleHDA on Tahoe (after Lilu and AppleALC)</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/SimpleHDA</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string>25.0.0</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -679,26 +697,27 @@
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
-		</array>
-		<key>Block</key>
-		<array>
 			<dict>
 				<key>Arch</key>
 				<string>Any</string>
+				<key>BundlePath</key>
+				<string>AMFIPass.kext</string>
 				<key>Comment</key>
-				<string>Allow IOSkywalk downgrade for legacy Wi-Fi</string>
+				<string>AMFIPass.kext</string>
 				<key>Enabled</key>
 				<true/>
-				<key>Identifier</key>
-				<string>com.apple.iokit.IOSkywalkFamily</string>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/AMFIPass</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
-				<string>23.0.0</string>
-				<key>Strategy</key>
-				<string>Exclude</string>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
 			</dict>
 		</array>
+		<key>Block</key>
+		<array/>
 		<key>Emulate</key>
 		<dict>
 			<key>Cpuid1Data</key>
@@ -1031,7 +1050,7 @@
 				<key>bluetoothInternalControllerInfo</key>
 				<data>AAAAAAAAAAAAAAAAAAA=</data>
 				<key>boot-args</key>
-				<string>agdpmod=pikera lilucpu=10 -radcodec</string>
+				<string>agdpmod=pikera lilucpu=10 -radcodec shda-lang=pt_PT</string>
 				<key>csr-active-config</key>
 				<data>AwoAAA==</data>
 				<key>prev-lang:kbd</key>
