@@ -85,6 +85,7 @@
 
 macOS 26 no longer ships `AppleHDA.kext`, so AppleALC alone cannot provide analog audio on Tahoe.
 [SimpleHDA](https://github.com/laobamac/SimpleHDA) (Lilu plugin, v1.0.1) restores the AppleHDA stack through OpenCore injection, without touching the system volume.
+Verified in Hackintool: the ALC897 codec is loaded by `com.apple.driver.AppleHDA` (alongside the AMD HDMI/DP audio).
 
 - Kernel -> Add order: `Lilu` -> `AppleALC` -> `SimpleHDA`
 - Requires `Kernel -> Quirks -> DisableLinkeditJettison = true`
@@ -101,6 +102,22 @@ macOS 26 no longer ships `AppleHDA.kext`, so AppleALC alone cannot provide analo
 - Do **not** block `IOSkywalkFamily` (`Kernel -> Block`). That entry is only for legacy Broadcom Wi-Fi and removes the system framework that AirportItlwm depends on
 - `AMFIPass.kext` must be enabled
 - Wi-Fi 6 (HE) is off by default; add `itlwm_he=1` to boot-args to try it
+
+Verified on this machine: the card shows up as `en0` (`com.zxystd.AirportItlwm`), the firmware loads (`fw: 68.01d30b0c.0`) and `system_profiler SPAirPortDataType` lists the nearby networks.
+
+**macOS does not create the Wi-Fi network service by itself.** After the first boot with AirportItlwm, `networksetup -listnetworkserviceorder` has no Wi-Fi entry, the status stays `Network Service Inactive` and the Wi-Fi pane has nothing to show. Add it once (see [itlwm issue #5](https://github.com/laobamac/itlwm/issues/5)):
+
+- System Settings -> Network -> `...` -> Add Service -> Interface: **Wi-Fi**, or
+- `sudo networksetup -createnetworkservice Wi-Fi Wi-Fi`
+
+Do not delete the `Ethernet` service: on this machine it is the Realtek LAN (`en1`).
+
+Troubleshooting:
+
+- `networksetup -listallhardwareports` - `en0` must be listed as `Wi-Fi`
+- `system_profiler SPAirPortDataType` - firmware version and visible networks
+- `log show --last 20m --predicate 'process == "airportd"' --style compact` - scan and join errors
+- The RELEASE build of AirportItlwm logs almost nothing in the kernel log; use the DEBUG build from the [releases page](https://github.com/laobamac/itlwm/releases) when you need driver logs
 
 ---
 
@@ -149,7 +166,8 @@ macOS 26 no longer ships `AppleHDA.kext`, so AppleALC alone cannot provide analo
 ## ⚠️ Known Issues
 
 - **❌ AirDrop**: Not working *(AirportItlwm does not support AWDL)*
-- **⚠️ Wi-Fi / Audio**: setup for Tahoe 26.7.2 (AirportItlwm + SimpleHDA) is configured but still being validated on hardware
+- **⚠️ Wi-Fi**: WPA3-only and mandatory-PMF networks are not supported by AirportItlwm; WPA2-Personal and WPA2/WPA3 transition are supported according to its README *(joining a network not yet verified on this machine)*
+- **ℹ️ Audio / Wi-Fi on Tahoe**: both depend on third-party kexts (SimpleHDA, AirportItlwm) that are still alpha-quality; re-check them after every macOS update
 - **✅ Recommendation**: Use BCM94360CD for full Continuity/AirDrop/Handoff
 
 ---
